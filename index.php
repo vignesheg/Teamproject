@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <?php for($x = 0;$x =< 10;$x++){echo "
+    <?php 
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+    
+    for($x = 0;$x =< 10;$x++){echo "
     <h2>jollya irukkinga pola</h2>";}?>
 </body>
 </html>
