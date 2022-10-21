@@ -10,7 +10,7 @@ display_name VARCHAR(50) NOT NULL,
 email VARCHAR(50),
 gender VARCHAR(50),
 password VARCHAR(500),
-cpassword VARCHAR(50),
+cpassword VARCHAR(500)
 )";
 
 $result = pg_query($conn,$sql);
