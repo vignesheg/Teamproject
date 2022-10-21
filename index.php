@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php for($x = 0,$x =< 10,$x++){echo "
-    <h2>jollya irukkinga pola</h2>";?>
+    <?php for($x = 0;$x =< 10;$x++){echo "
+    <h2>jollya irukkinga pola</h2>";}?>
 </body>
 </html>
