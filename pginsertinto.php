@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require "mysqldbconn.php";
 
-$sql = "INSERT INTO users (name,display_name,gmail,gender,password,cpassword)
+$sql = "INSERT INTO users (name,display_name,email,gender,password,cpassword)
 VALUES ('vignesh','vignesh','vignesheg10@gmail.com','male','123',' 123')";
 
 
