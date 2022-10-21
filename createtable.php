@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 require "mysqldbconn.php";
 
 $sql = "CREATE TABLE users (
-id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(50) NOT NULL,
 display_name VARCHAR(50) NOT NULL,
 email VARCHAR(50),
