@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>jollya irukkinga pola</h2>
-    <iframe src="https://youtu.be/dQw4w9WgXcQ">
+    <?php for($x = 0,$x =< 10,$x++){echo "
+    <h2>jollya irukkinga pola</h2>";?>
 </body>
 </html>
