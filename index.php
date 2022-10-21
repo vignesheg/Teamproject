@@ -14,7 +14,7 @@ error_reporting(E_ALL);?>
 </head>
 <body>
     <?php 
-    for($x = 0;$x ,= 10;$x++){echo "
+    for($x = 0;$x <= 10;$x++){echo "
     <h2>jollya irukkinga pola</h2>";}?>
 </body>
 </html>
