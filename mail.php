@@ -14,6 +14,8 @@ $mail = mail("yashitrue5@gmail.com","My subject",$msg);
 if($mail){
     echo "mail sent";
 }else{
-    echo "mail not sent";
+    echo "mail not sent"; 
 }
+
+echo "hi";
 ?>
