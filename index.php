@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+?.<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +14,6 @@
 </head>
 <body>
     <?php 
-    ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-    
     for($x = 0;$x =< 10;$x++){echo "
     <h2>jollya irukkinga pola</h2>";}?>
 </body>
