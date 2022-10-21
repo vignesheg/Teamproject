@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);?>
 
 
-?.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@ error_reporting(E_ALL);?>
 </head>
 <body>
     <?php 
-    for($x = 0;$x =< 10;$x++){echo "
+    for($x = 0;$x ,= 10;$x++){echo "
     <h2>jollya irukkinga pola</h2>";}?>
 </body>
 </html>
