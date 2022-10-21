@@ -9,5 +9,11 @@ $msg = "First line of text\nSecond line of text";
 $msg = wordwrap($msg,70);
 
 // send email
-mail("yashitrue5@gmail.com","My subject",$msg);
+$mail = mail("yashitrue5@gmail.com","My subject",$msg);
+
+if($mail){
+    echo "mail sent";
+}else{
+    echo "mail not sent";
+}
 ?>
