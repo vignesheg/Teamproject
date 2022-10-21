@@ -28,12 +28,11 @@ $result = pg_query($conn,$sql);
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
-                          <td><a href='updatedata.php?gmail=".$row["gmail"]."'>update/edit</td>
-                          <td><a href='deletedata.php?gmail=".$row["gmail"]."'>delete</td>
+                          <td><a href='updatedata.php?email=".$row["email"]."'>update/edit</td>
+                          <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
                           </tr>" ;
               }
                    echo "<tr><td><a href = 'logout.php'>logout</a></td></tr>";
-              echo "</table>";
         ?>      
     </table>
 </body>
