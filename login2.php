@@ -24,7 +24,7 @@ if($result){
     echo "query not running";
 }
 
-if($num == 1){
+if($num === 1){
     echo "query selected";
 }}?>
 
