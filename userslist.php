@@ -41,7 +41,6 @@ $result = pg_query($conn,$sql);
                           <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
                           </tr>" ;
               }
-                   echo "<tr><td><a href = 'logout.php'>logout</a></td></tr>";
         ?>      
     </table>
 </body>
