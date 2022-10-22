@@ -13,5 +13,5 @@ $num = pg_num_rows($result);
 
 if($run === 1){
     header('userslist.php');
-}
+}?>
 
