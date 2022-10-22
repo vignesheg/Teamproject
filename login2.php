@@ -25,7 +25,7 @@ if($result){
 }
 
 if($num == 1){
-    header('userslist.php');
+    echo "query selected";
 }}?>
 
 <html>
