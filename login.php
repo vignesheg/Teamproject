@@ -4,8 +4,15 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 require "mysqldbconn.php";
-$username = "";
-$enterpassword = "";
+echo $num;
+echo $row['email'];
+
+if($result){
+    echo "query running";
+}else{
+    echo "query not running";
+}
+
 
 if(isset($_POST['login'])){
     $username = $_POST['gmail'];
