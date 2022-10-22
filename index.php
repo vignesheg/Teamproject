@@ -1,33 +1,63 @@
-<?php 
-ob_start();
+<?php
+session_start();
 require "mysqldbconn.php";
+$username = "";
+$enterpassword = "";
 
-  if(isset($_POST['register'])){
-    if(isset($_POST['terms'])){
-   
-    $username=$_POST['username'];
-    $display_name = $_POST['displayname'];
-    $gmail=$_POST['gmail'];
-    $gender=$_POST['gender'];
-    $password=$_POST['password'];
-    $cpassword=$_POST['cpassword'];
+if(isset($_POST['login'])){
+    $username = $_POST['gmail'];
+    $password = $_POST['password']; 
+    
+    if(empty($username)){
+        $requirederr = "Please Enter Your Email Address ";
+    }else{
+        $requirederr = "";
+    }  
+    
+    if(empty($password)){
+        $passworderr = "Please Enter Your Password";
+    }else{
+        $passworderr = "";
+    }  
+    
+    if(empty($usename) && empty($password)){}else{
+    $sql = "SELECT * FROM users WHERE email = '$username'";
+    $run = pg_query($conn,$sql);
+    $no = pg_num_rows($run);
+    $assoc = pg_fetch_assoc($run);
 
-    $passwordhash = password_hash($password,PASSWORD_DEFAULT);
-    $cpasswordhash = password_hash($cpassword,PASSWORD_DEFAULT);
-   
-   if($password === $cpassword){
-    $sql = "INSERT INTO users (name,display_name,email,gender,password,cpassword)
-            VALUES ('$username','$display_name','$gmail','$gender','$passwordhash',' $cpasswordhash')";
-            $run = pg_query($conn,$sql);
-            if($run == true){
-                header('location:login.php');
-            }else{
-                echo 'failed';
-            }
-        }else{echo "password doesn,t match";}}else{
-          echo "please accept our terms and conditions";
-        }}
-        ob_end_flush();
+
+
+    if($no == 0){}else{
+    $hashedpassword = $assoc['password'];
+    
+    $_SESSION['email'] = $username;
+    if(password_verify($password,$hashedpassword)){
+        $_SESSION['username'] = $username;
+        if(isset($_POST['check'])){
+            setcookie('emailcookie',$_POST['email'],time()+3600,'/');
+            setcookie('passwordcookie',$_POST['password'],time()+3600,'/');
+        }else{
+            setcookie('emailcookie',$_POST['email'],time()-3600,'/');
+            setcookie('passwordcookie',$_POST['password'],time()-3600,'/');
+        }
+        header('userslist.php');
+    }else{
+      $enterpassword = "Wrong Password";
+    }
+}
+
+
+if(isset($_COOKIE['emailcookie'])){
+       $email = $_COOKIE['emailcookie'];
+       $password = $_COOKIE['passwordcookie'];
+}else{
+    $email = "";
+    $password = "";
+}}}else{
+    $email = "";
+    $password = "";
+}
 ?>
 
 <html>
@@ -49,11 +79,34 @@ require "mysqldbconn.php";
             text-align: center;
         }
 
-        .form {
-            margin-top: 40px;
+        .form{
+            margin-top: 50px;
         }
 
-        .email {
+        .email{
+                width: 100%;
+                border-radius: 5px;
+                border: 1.5px solid #bdbdbd;
+                padding-top: 9px;
+                padding-bottom: 9px;
+                padding-left: 15px;
+                outline: none;
+            }
+
+         <?php if(isset($_POST['login'])){
+            if(empty($username)){
+         echo '.email{
+            width: 100%;
+            border-radius: 5px;
+            border: 1.5px solid red;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-left: 15px;
+            outline: none;}';
+        }
+        }
+         ?>
+        .password{
             width: 100%;
             border-radius: 5px;
             border: 1.5px solid #bdbdbd;
@@ -63,21 +116,23 @@ require "mysqldbconn.php";
             outline: none;
         }
 
-        .password {
-            width: 100%;
-            border-radius: 5px;
-            border: 1.5px solid #bdbdbd;
-            padding-top: 9px;
-            padding-bottom: 9px;
-            padding-left: 15px;
-            outline: none;
-        }
+        <?php if(isset($_POST['login'])){
+            if(empty($password)){
+                echo '.password{
+                    width: 100%;
+                    border-radius: 5px;
+                    border: 1.5px solid red;
+                    padding-top: 9px;
+                    padding-bottom: 9px;
+                    padding-left: 15px;
+                    outline: none;}';
+        }  }?>
 
-        .login {
+        .login{
             margin-top: 30px;
         }
 
-        .loginbt {
+        .loginbt{
             border: none;
             background-color: #3b71ca;
             color: #fff;
@@ -86,111 +141,23 @@ require "mysqldbconn.php";
             padding-left: 35px;
             padding-right: 35px;
             border-radius: 5px;
-            box-shadow: 0px 2px 8px #3b71ca;
-            width: 100%;
-            margin-top: -10px;
+            box-shadow: 0px 2px 10px #3b71ca;;
         }
 
-        .loginbt:hover {
+        .loginbt:hover{
             background-color: #3f6bb3;
         }
 
-        .img {
+        .img{
             margin-left: 10px;
             height: 35px;
             width: 30px;
-            box-shadow: 0px 2px 10px #888888;
+            box-shadow: 0px 2px 10px #888888 ;
             border-radius: 20px;
         }
 
 
-
-    /*the container must be positioned relative:*/
-.custom-select {
-  position: relative;
-  font-family: Arial;
-}
-
-.custom-select select {
-  display: none; /*hide original SELECT element:*/
-}
-
-.select-selected {
-  background-color: transparent;
-}
-
-/*style the arrow inside the select element:*/
-.select-selected:after {
-  position: absolute;
-  content: "";
-  top: 14px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-color: rgb(126, 122, 122) transparent transparent transparent;
-}
-
-/*point the arrow upwards when the select box is open (active):*/
-.select-selected.select-arrow-active:after {
-  border-color: transparent transparent rgb(126, 122, 122) transparent;
-  top: 7px;
-}
-
-/*style the items (options), including the selected item:*/
-.select-selected {
-  color: #4b4b4b;
-  padding: 5.3px 16px;
-  border: 1px solid transparent;
-  border-color: rgb(188, 188, 188);
-  cursor: pointer;
-  user-select: none;
-  border-radius: 5px;
-}
-
-.select-items div{
-  background-color: white;
-  border:1px solid  rgb(254, 254, 254);
-  border-top: none;
-  padding: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5;
-}
-
-/*style items (options):*/
-.select-items {
-  position: absolute;
-  background-color: white;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 99;
-}
-
-/*hide the items when the select box is closed:*/
-.select-hide {
-  display: none;
-}
-
-.select-items div:hover, .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
-}
-.h-custom {
-height: calc(100% - 73px);
-}
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
-}
-}
+       
     </style>
 
 </head>
@@ -198,7 +165,7 @@ height: 100%;
 <body>
     <div class="container">
         <div>
-            <span style="color:#4b4b4b;font-family: Arial, Helvetica, sans-serif;font-size: 20px;">Sign up with</span>
+            <span style="color:#4b4b4b;font-family: Arial, Helvetica, sans-serif;font-size: 20px;">Sign in with</span>
             <img class="img" src="facebook-svgrepo-com.svg">
             <img class="img" src="1534129544.svg">
         </div>
@@ -209,121 +176,24 @@ height: 100%;
             <div class="form">
                 <form action="" method="POST">
                     <div>
-                        <input class="email" type="text" name="displayname" placeholder="Name">
+                        <input class="email" type="email" name="gmail" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $email;}else{ echo $username;} ?>" placeholder="Email address">
+                        <p style = "color:Red;margin-bottom:-8px;font-size: small;"><?php if(isset($_POST['login'])){ echo $requirederr;} ?></p>
                     </div><br>
                     <div>
-                        <input class="email" type="text" name="username" placeholder="Username">
-                    </div><br>
-                    <div>
-                        <input class="email" type="email" name="gmail" placeholder="Email address">
-                    </div><br>
-                    <!--Gender-->
-                    <div class="custom-select" name="gender" style="width:100%;margin-bottom: 24px;">
-                        <select name = "gender">
-                            <option value="notselected">Select Gender</option>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                            <option value="other">Others</option>
-                        </select>
+                        <input class="password" type="password" value="<?php echo $password; ?>" name="password" placeholder="Password">
+                        <p style = "color:Red;margin-bottom:-6px;font-size: small;"><?php if(isset($_POST['login'])){ echo $passworderr;}?></p>
+                        <p style = "color:Red;margin-bottom:-6px;font-size: small;"><?php if(isset($_POST['login'])){ echo $enterpassword;}?></p>
                     </div>
-
-                    <div>
-                        <input class="email" type="password" name="password" placeholder="conform password">
-                    </div><br>
-                    <div>
-                        <input class="password" type="password" name="cpassword" placeholder="Password">
+                    <input style="margin-top:20px;" type="checkbox" name="check"><label style="font-family:Arial, Helvetica, sans-serif;margin-left: 5px;color:#424242;">Remember Me</label>
+                    <a href="#" style="text-decoration: none;margin-left: 210px;color:#3e3d3d;">Forgot Password?</a>
+                    <div class="login"> 
+                        <input class="loginbt" type="submit" name="login" value="Login">
                     </div>
-                    <div style="margin-top: 20px;">
-                        <input style="margin-left:80px;" name="terms" type="checkbox">
-                        <label style="margin-left:10px ;color:#4b4b4b;">I have read and agree to the terms</label>
-                    </div>
-                    <div class="login">
-                        <input class="loginbt" type="submit" name="register" value="Register">
-                    </div>
+                    <p class="small fw-bold mt-2 pt-1 mb-0">Not  a  Member? <a href="register.php" class="link-danger" style="text-decoration:none;">Register?</a></p>
                 </form>
             </div>
         </div>
     </div>
-    <script>
-        var x, i, j, l, ll, selElmnt, a, b, c;
-        /*look for any elements with the class "custom-select":*/
-        x = document.getElementsByClassName("custom-select");
-        l = x.length;
-        for (i = 0; i < l; i++) {
-          selElmnt = x[i].getElementsByTagName("select")[0];
-          ll = selElmnt.length;
-          /*for each element, create a new DIV that will act as the selected item:*/
-          a = document.createElement("DIV");
-          a.setAttribute("class", "select-selected");
-          a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-          x[i].appendChild(a);
-          /*for each element, create a new DIV that will contain the option list:*/
-          b = document.createElement("DIV");
-          b.setAttribute("class", "select-items select-hide");
-          for (j = 1; j < ll; j++) {
-            /*for each option in the original select element,
-            create a new DIV that will act as an option item:*/
-            c = document.createElement("DIV");
-            c.innerHTML = selElmnt.options[j].innerHTML;
-            c.addEventListener("click", function(e) {
-                /*when an item is clicked, update the original select box,
-                and the selected item:*/
-                var y, i, k, s, h, sl, yl;
-                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                sl = s.length;
-                h = this.parentNode.previousSibling;
-                for (i = 0; i < sl; i++) {
-                  if (s.options[i].innerHTML == this.innerHTML) {
-                    s.selectedIndex = i;
-                    h.innerHTML = this.innerHTML;
-                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                    yl = y.length;
-                    for (k = 0; k < yl; k++) {
-                      y[k].removeAttribute("class");
-                    }
-                    this.setAttribute("class", "same-as-selected");
-                    break;
-                  }
-                }
-                h.click();
-            });
-            b.appendChild(c);
-          }
-          x[i].appendChild(b);
-          a.addEventListener("click", function(e) {
-              /*when the select box is clicked, close any other select boxes,
-              and open/close the current select box:*/
-              e.stopPropagation();
-              closeAllSelect(this);
-              this.nextSibling.classList.toggle("select-hide");
-              this.classList.toggle("select-arrow-active");
-            });
-        }
-        function closeAllSelect(elmnt) {
-          /*a function that will close all select boxes in the document,
-          except the current select box:*/
-          var x, y, i, xl, yl, arrNo = [];
-          x = document.getElementsByClassName("select-items");
-          y = document.getElementsByClassName("select-selected");
-          xl = x.length;
-          yl = y.length;
-          for (i = 0; i < yl; i++) {
-            if (elmnt == y[i]) {
-              arrNo.push(i)
-            } else {
-              y[i].classList.remove("select-arrow-active");
-            }
-          }
-          for (i = 0; i < xl; i++) {
-            if (arrNo.indexOf(i)) {
-              x[i].classList.add("select-hide");
-            }
-          }
-        }
-        /*if the user clicks anywhere outside the select box,
-        then close all select boxes:*/
-        document.addEventListener("click", closeAllSelect);
-        </script>
 </body>
 
 </html>
