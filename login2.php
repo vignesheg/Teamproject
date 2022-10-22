@@ -24,8 +24,9 @@ if($result){
     echo "query not running";
 }
 
-if($num === 1){
+if($num > 0){
     echo "query selected";
+    header('userslist.php');
 }}?>
 
 <html>
