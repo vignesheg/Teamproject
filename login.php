@@ -4,16 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
 require "mysqldbconn.php";
-echo $num;
-echo $row['email'];
-
-if($result){
-    echo "query running";
-}else{
-    echo "query not running";
-}
 
 
+
+echo '22';
 if(isset($_POST['login'])){
     $username = $_POST['gmail'];
     $password = $_POST['password']; 
@@ -35,6 +29,15 @@ if(isset($_POST['login'])){
     $run = pg_query($conn,$sql);
     $no = pg_num_rows($run);
     $assoc = pg_fetch_assoc($run);
+
+
+    echo $num;
+echo $row['email'];
+
+if($result){
+    echo "query running";
+}else{
+    echo "query not running";
 
 
 
