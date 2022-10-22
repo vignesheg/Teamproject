@@ -14,8 +14,17 @@ if(isset($_POST['login'])){
 $sql = "SELECT * FROM users WHERE email = '$username'";
 $result = pg_query($conn,$sql);
 $num = pg_num_rows($result);
+$row = pg_fetch_assoc($num);
 
-if($num === 1){
+echo $row['email'];
+
+if($result){
+    echo "query running"
+}else{
+    echo "query not running";
+}
+
+if($num == 1){
     header('userslist.php');
 }}?>
 
