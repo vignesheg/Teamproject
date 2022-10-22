@@ -15,7 +15,7 @@ $sql = "SELECT * FROM users WHERE email = '$username'";
 $result = pg_query($conn,$sql);
 $num = pg_num_rows($result);
 
-if($run === 1){
+if($num === 1){
     header('userslist.php');
 }}?>
 
