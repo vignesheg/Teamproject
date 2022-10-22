@@ -30,6 +30,7 @@ $result = pg_query($conn,$sql);
             <th>Display Name</th>
             <th>Email</th>
             <th>Gender</th>
+            <th colspan="2">Operations</th>
         </tr>
         <?php 
             while($row = pg_fetch_assoc($result)){
