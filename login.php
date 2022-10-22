@@ -51,7 +51,7 @@ if(isset($_POST['login'])){
             setcookie('emailcookie',$_POST['email'],time()-3600,'/');
             setcookie('passwordcookie',$_POST['password'],time()-3600,'/');
         }
-        header('userslist.php');
+        echo '<script>window.location.replace("userslist.php");</script>';
     }else{
       $enterpassword = "Wrong Password";
     }
