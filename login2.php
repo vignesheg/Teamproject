@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
 $sql = "SELECT * FROM users WHERE email = '$username'";
 $result = pg_query($conn,$sql);
 $num = pg_num_rows($result);
-$row = pg_fetch_assoc($num);
+$row = pg_fetch_assoc($result);
 
 echo $row['email'];
 
