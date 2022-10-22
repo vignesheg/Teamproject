@@ -19,7 +19,7 @@ $row = pg_fetch_assoc($num);
 echo $row['email'];
 
 if($result){
-    echo "query running"
+    echo "query running";
 }else{
     echo "query not running";
 }
