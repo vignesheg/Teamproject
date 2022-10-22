@@ -11,6 +11,10 @@ margin:0%;
    border-radius: 5px;
    display: inline-block;
    padding-right: 120px;
+   text-decoration: none;
+   color: rgba(0, 8, 239, 0.92);
+   font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }
 
 .li:hover{
@@ -20,6 +24,8 @@ margin:0%;
     padding-left: 20px;
     background-color: rgba(160, 198, 250, 0.217);
     border-radius: 5px;
+    text-decoration: none;
+    color: rgba(0, 8, 239, 0.92);
  }
 
 .mnlink{
@@ -39,6 +45,7 @@ margin:0%;
     max-width: 15vw;
     height: 47.5vw;
     position: fixed;
+    z-index: -1;
 }
 
 .li:focus{
@@ -48,4 +55,21 @@ margin:0%;
     padding-left: 20px;
     background-color: rgba(160, 198, 250, 0.217);
     border-radius: 5px;
+    text-decoration: none;
+    color: rgba(0, 8, 239, 0.92);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+
+.horzontalmenu{
+    background-color: #ffff;
+}
+
+iframe{
+    margin-left: 280px;
+    width: 84.3vw;
+    height: 44.3vw;
+    border: none;
+    position: absolute;
 }
