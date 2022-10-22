@@ -4,18 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ob_start();
  session_start();
- 
-$server='localhost';
-$usr='root';
-$pass='';
-$db = "studentsmark";
-
-
-$conn = mysqli_connect($server,$usr,$pass,$db);
-if(!$conn){
-    die('connection failed:'.mysqli_connect_error());
-}
-
+ require "mysqldbconn.php";
 
  $username = $_SESSION["username"];
  //var_dump($username);

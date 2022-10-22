@@ -6,7 +6,7 @@ session_start();
 require "mysqldbconn.php";
 $username = "";
 $enterpassword = "";
-
+echo "hi";
 if(isset($_POST['login'])){
     $username = $_POST['gmail'];
     $password = $_POST['password']; 
