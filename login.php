@@ -3,76 +3,31 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 session_start();
+
 require "mysqldbconn.php";
 
-
-
-echo '22';
 if(isset($_POST['login'])){
     $username = $_POST['gmail'];
     $password = $_POST['password']; 
     
-    if(empty($username)){
-        $requirederr = "Please Enter Your Email Address ";
-    }else{
-        $requirederr = "";
-    }  
-    
-    if(empty($password)){
-        $passworderr = "Please Enter Your Password";
-    }else{
-        $passworderr = "";
-    }  
-    
-    if(empty($usename) && empty($password)){}else{
-    $sql = "SELECT * FROM users WHERE email = '$username'";
-    $run = pg_query($conn,$sql);
-    $no = pg_num_rows($run);
-    $assoc = pg_fetch_assoc($run);
 
-
-    echo $num;
+$sql = "SELECT * FROM users WHERE email = '$username'";
+$result = pg_query($conn,$sql);
+$num = pg_num_rows($result);
+$row = pg_fetch_assoc($result);
+echo $num;
 echo $row['email'];
 
 if($result){
     echo "query running";
 }else{
     echo "query not running";
-
-
-
-    if($no > 0){}else{
-    $hashedpassword = $assoc['password'];
-    
-    $_SESSION['email'] = $username;
-    if(password_verify($password,$hashedpassword)){
-        $_SESSION['username'] = $username;
-        if(isset($_POST['check'])){
-            setcookie('emailcookie',$_POST['email'],time()+3600,'/');
-            setcookie('passwordcookie',$_POST['password'],time()+3600,'/');
-        }else{
-            setcookie('emailcookie',$_POST['email'],time()-3600,'/');
-            setcookie('passwordcookie',$_POST['password'],time()-3600,'/');
-        }
-        echo '<script>window.location.replace("userslist.php");</script>';
-    }else{
-      $enterpassword = "Wrong Password";
-    }
 }
 
-
-if(isset($_COOKIE['emailcookie'])){
-       $email = $_COOKIE['emailcookie'];
-       $password = $_COOKIE['passwordcookie'];
-}else{
-    $email = "";
-    $password = "";
-}}}else{
-    $email = "";
-    $password = "";
-}
-
-?>
+if($num > 0){
+    echo "query selected";
+    echo '<script>window.location.replace("dashboard.php");</script>';
+}}?>
 
 <html>
 
@@ -190,13 +145,10 @@ if(isset($_COOKIE['emailcookie'])){
             <div class="form">
                 <form action="" method="POST">
                     <div>
-                        <input class="email" type="email" name="gmail" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $email;}else{ echo $username;} ?>" placeholder="Email address">
-                        <p style = "color:Red;margin-bottom:-8px;font-size: small;"><?php if(isset($_POST['login'])){ echo $requirederr;} ?></p>
+                        <input class="email" type="email" name="gmail" value="" placeholder="Email address">
                     </div><br>
                     <div>
-                        <input class="password" type="password" value="<?php echo $password; ?>" name="password" placeholder="Password">
-                        <p style = "color:Red;margin-bottom:-6px;font-size: small;"><?php if(isset($_POST['login'])){ echo $passworderr;}?></p>
-                        <p style = "color:Red;margin-bottom:-6px;font-size: small;"><?php if(isset($_POST['login'])){ echo $enterpassword;}?></p>
+                        <input class="password" type="password" value="" name="password" placeholder="Password">
                     </div>
                     <input style="margin-top:20px;" type="checkbox" name="check"><label style="font-family:Arial, Helvetica, sans-serif;margin-left: 5px;color:#424242;">Remember Me</label>
                     <a href="#" style="text-decoration: none;margin-left: 210px;color:#3e3d3d;">Forgot Password?</a>
@@ -211,3 +163,4 @@ if(isset($_COOKIE['emailcookie'])){
 </body>
 
 </html>
+
