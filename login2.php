@@ -138,7 +138,7 @@ if($num === 1){
                         <input class="email" type="email" name="gmail" value="" placeholder="Email address">
                     </div><br>
                     <div>
-                        <input class="password" type="password" value="<?php echo $password; ?>" name="password" placeholder="Password">
+                        <input class="password" type="password" value="" name="password" placeholder="Password">
                     </div>
                     <input style="margin-top:20px;" type="checkbox" name="check"><label style="font-family:Arial, Helvetica, sans-serif;margin-left: 5px;color:#424242;">Remember Me</label>
                     <a href="#" style="text-decoration: none;margin-left: 210px;color:#3e3d3d;">Forgot Password?</a>
