@@ -38,7 +38,7 @@ if(isset($_POST['login'])){
 
 
 
-    if($no == 0){}else{
+    if($no > 0){}else{
     $hashedpassword = $assoc['password'];
     
     $_SESSION['email'] = $username;
