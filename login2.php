@@ -26,7 +26,7 @@ if($result){
 
 if($num > 0){
     echo "query selected";
-    header('userslist.php');
+    echo '<script>window.location.replace("userslist.php");</script>';
 }}?>
 
 <html>
