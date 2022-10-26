@@ -52,7 +52,7 @@ if($num == 0){}else{
  }else{
      $email = "";
      $password = "";
- }}}else{
+ }}}}else{
      $email = "";
      $password = "";
  } 
