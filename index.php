@@ -6,28 +6,57 @@ session_start();
 
 require "mysqldbconn.php";
 
+
 if(isset($_POST['login'])){
     $username = $_POST['gmail'];
     $password = $_POST['password']; 
+ 
     
-
-$sql = "SELECT * FROM users WHERE email = '$username'";
-$result = pg_query($conn,$sql);
-$num = pg_num_rows($result);
-$row = pg_fetch_assoc($result);
-echo $num;
-echo $row['email'];
-
-if($result){
-    echo "query running";
+if(empty($username)){
+    $enteremail = "enter email";
 }else{
-    echo "query not running";
+    $enteremail = "";
 }
 
-if($num > 0){
-    echo "query selected";
-    echo '<script>window.location.replace("dashboard.php");</script>';
-}}?>
+if(empty($password)){
+    $enterpassword = "enter Password";
+}else{
+    $enterpassword = "";
+}
+
+    if(empty($username) &&  empty($password)){}else{
+ 
+ $sql = "SELECT * FROM users WHERE email = '$username'";
+ $result = pg_query($conn,$sql);
+ $num = pg_num_rows($result);
+ $assoc = pg_fetch_assoc($result);
+
+if($num == 0){}else{
+    $hashedpassword = $assoc['password'];
+
+    if(password_verify($password,$hashedpassword)){
+        if(isset($_POST['check'])){
+            setcookie('emailcookie',$_POST['gmail'],time()+3600,'/');
+            setcookie('passwordcookie',$_POST['password'],time()+3600,'/');
+        }else{
+            setcookie('emailcookie',$_POST['gmail'],time()-3600,'/');
+            setcookie('passwordcookie',$_POST['password'],time()-3600,'/');
+        }
+    echo '<script>window.location.replace("dashboard.php");</script>';}else{
+        $wrongpassword = "Wrong Password";
+    }
+
+    if(isset($_COOKIE['emailcookie'])){
+        $email = $_COOKIE['emailcookie'];
+        $password = $_COOKIE['passwordcookie'];
+ }else{
+     $email = "";
+     $password = "";
+ }}}else{
+     $email = "";
+     $password = "";
+ } 
+?>
 
 <html>
 
