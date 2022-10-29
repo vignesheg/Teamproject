@@ -32,14 +32,6 @@ $result = pg_query($conn,$sql);
             <th>Gender</th>
             <th colspan="2" style="text-align:center;">Operations</th>
         </tr>
-        <tr>
-            <th>Name</th>
-            <th>Display Name</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>status</th>
-            <th colspan="2" style="text-align:center;">Operations</th>
-        </tr>
         <?php 
             while($row = pg_fetch_assoc($result)){
                 echo "<tr><td>" .$row["name"]. "</td>
