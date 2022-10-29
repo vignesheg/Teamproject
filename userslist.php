@@ -6,7 +6,10 @@ require "mysqldbconn.php";
 
 $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
-$row = pg_fetch_assoc($result);
+
+
+while($row = pg_fetch_assoc($result)){
+$row = pg_fetch_assoc($result);}
 if( $row['status'] == 'notactivated'){
     $activate = '<button class="btn btn-success" name="activate">Activate</button>';
 }elseif($row['status'] == 'activated'){
