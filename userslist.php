@@ -37,6 +37,7 @@ $result = pg_query($conn,$sql);
             <th>Display Name</th>
             <th>Email</th>
             <th>Gender</th>
+            <th>status</th>
             <th colspan="2" style="text-align:center;">Operations</th>
         </tr>
         <?php 
@@ -45,6 +46,7 @@ $result = pg_query($conn,$sql);
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
+                          <td>" .$row["status"]. "</td>
                           <td><a href='updatedata.php?email=".$row["email"]."'>update/edit</td>
                           <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
                           </tr>" ;
