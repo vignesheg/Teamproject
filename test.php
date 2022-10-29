@@ -1,13 +1,9 @@
 <html>
     <head></head>
     <body>
-    <table class="table table-striped">
+    <table class="table table-striped mt-5">
     <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
+      
     </thead>
     <tbody>
       <tr>

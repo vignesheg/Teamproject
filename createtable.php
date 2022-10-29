@@ -4,14 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require "mysqldbconn.php";
 
-$sql = "CREATE TABLE users (
-name VARCHAR(50) NOT NULL,
-display_name VARCHAR(50) NOT NULL,
-email VARCHAR(50),
-gender VARCHAR(50),
-password VARCHAR(500),
-cpassword VARCHAR(500)
-)";
+$sql = "ALTER TABLE users
+ADD status varchar(5);";
 
 $result = pg_query($conn,$sql);
 if($result){

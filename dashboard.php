@@ -32,11 +32,126 @@
         .vrmncnt {
             margin-top: 90px !important;
         }
+
+
+        @media only screen and (max-width: 600px) {
+            .vrmn {
+                margin-left: -700px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .img {
+                display: inline !important;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            .links {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width:600px) {
+            .smmenu {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                
+               
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: #666;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #ddd;
+            }
+
+            
+        }
     </style>
 </head>
 
 <body>
-    <div style="width:230px;" class=" position-fixed h-100 shadow bg-dark">
+
+    <div class="smmenu fixed-top shadow-sm bg-white">
+        <ul>
+            <li><a class="active" href="#home"><i class="fa-regular fa-message"></i></a></li>
+            <li><a href="#news" class="li"><i class="fa-regular fa-bell"></i></a></li>
+            <li><a href="#contact"><img src="dashboard-3015057-2503766.webp" alt="Avatar Logo"
+                        style="width:20px;margin-top: -5px;" class="rounded-pill"></a></li>
+
+
+            <li style="margin-top: 13px;">
+                <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
+                    data-bs-toggle="dropdown">vignesh</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Link</a></li><br>
+                    <li><a class="dropdown-item" href="#">Another link</a></li><br>
+                    <li><a class="dropdown-item" href="#">A third link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <nav class="links navbar navbar-expand-sm bg-white navbar-white shadow-sm fixed-top">
+            <div class="container-fluid">
+                <img class="img img-fluid" src="unnamed.png" alt="New York" width="100" height="50">
+                <div class="" style="width: 22rem;">
+                    <ul class="navbar-nav align-baseline" style="margin-right: 0px;">
+                        <li class="nav-item ptr">
+                            <a class="nav-link" style="font-size: 25px;" href=""><i
+                                    class="fa-regular fa-message"></i></a>
+                        </li>
+
+                        <li class="nav-item ptr">
+                            <a class="nav-link" style="font-size:30px ;margin-top: -5px;" href=""><i
+                                    class="fa-regular fa-bell"></i></i></a>
+                        </li>
+
+                        <li class="nav-item ptr">
+                            <a class="navbar-brand" href="#">
+                                <img src="dashboard-3015057-2503766.webp" alt="Avatar Logo"
+                                    style="width:40px;margin-top: 4px;" class="rounded-pill">
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown" style="margin-top: 3px;margin-left: -17px;">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
+                                data-bs-toggle="dropdown">vignesh</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Link</a></li>
+                                <li><a class="dropdown-item" href="#">Another link</a></li>
+                                <li><a class="dropdown-item" href="#">A third link</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div style="width:230px;" class="vrmn position-fixed h-100 shadow bg-dark">
         <div class="container-fluid">
             <ul class="navbar-nav align-baseline" style="margin-top:6rem ;">
                 <li class="nav-item pb-2">
@@ -78,54 +193,13 @@
         </div>
 
     </div>
+
     <div>
-        <nav class="navbar navbar-expand-sm bg-white navbar-white shadow-sm fixed-top">
-            <div class="container-fluid">
-                <img class="img-fluid" src="unnamed.png" alt="New York" width="100" height="50">
-                <form class="d-flex position-absolute" style="left: 18rem;">
-                    <input class="form-control" type="text" placeholder="Search">
-                    <button class="btn btn-primary" type="button"><i class="fa-solid fa-magnifying-glass fx-1"></i></button>
-                </form>
-                <div class="" style="width: 22rem;">
-                <ul class="navbar-nav align-baseline" style="margin-right: 0px;">
-                    <li class="nav-item ptr">
-                        <a class="nav-link" style="font-size: 25px;" href=""><i class="fa-regular fa-message"></i></a>
-                    </li>
-
-                    <li class="nav-item ptr">
-                        <a class="nav-link" style="font-size:30px ;margin-top: -5px;" href=""><i
-                                class="fa-regular fa-bell"></i></i></a>
-                    </li>
-
-                    <li class="nav-item ptr">
-                        <a class="navbar-brand" href="#">
-                            <img src="dashboard-3015057-2503766.webp" alt="Avatar Logo"
-                                style="width:40px;margin-top: 4px;" class="rounded-pill">
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown" style="margin-top: 3px;margin-left: -17px;">
-                        <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
-                            data-bs-toggle="dropdown">vignesh</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Link</a></li>
-                            <li><a class="dropdown-item" href="#">Another link</a></li>
-                            <li><a class="dropdown-item" href="#">A third link</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-                </div>
-            </div>
-        </nav>
+        <?php require "userslist.php"; ?>
     </div>
 
 
-    <div class="">
-        <?php
-          require "test.php";
-          ?>
-    </div>
+
 
 </body>
 

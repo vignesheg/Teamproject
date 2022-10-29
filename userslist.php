@@ -24,7 +24,7 @@ $result = pg_query($conn,$sql);
 </head>
 
 <body>
-    <table class="table">
+    <table class="table table-striped">
         <tr class="info">
             <th>Name</th>
             <th>Display Name</th>
