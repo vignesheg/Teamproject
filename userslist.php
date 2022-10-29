@@ -25,7 +25,14 @@ $result = pg_query($conn,$sql);
 
 <body>
     <table class="table table-striped">
-        <tr class="info">
+        <tr>
+            <th>Name</th>
+            <th>Display Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th colspan="2" style="text-align:center;">Operations</th>
+        </tr>
+        <tr>
             <th>Name</th>
             <th>Display Name</th>
             <th>Email</th>
