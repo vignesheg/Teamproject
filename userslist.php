@@ -6,7 +6,8 @@ require "mysqldbconn.php";
 
 $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
-//$row = pg_fetch_assoc($result);
+$row = pg_fetch_assoc($result);
+echo $row['status'];
 
 ?>
 
@@ -30,6 +31,7 @@ $result = pg_query($conn,$sql);
             <th>Display Name</th>
             <th>Email</th>
             <th>Gender</th>
+           <th>status</th>
             <th colspan="2" style="text-align:center;">Operations</th>
         </tr>
         <?php 
