@@ -7,7 +7,17 @@ require "mysqldbconn.php";
 $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 $row = pg_fetch_assoc($result);
-echo $row['status'];
+if( $row['status'] == 'notactivated'){
+    $activate = '<button class="btn btn-success" name="activate">Activate</button>';
+}elseif($row['status'] == 'activated'){
+    $activate = '<button class="btn btn-danger" name="activate">De Activate</button>';
+}else{
+    $activate = '<button class="btn btn-danger" name="activate">Re activate</button>';
+}
+
+
+
+
 
 ?>
 
@@ -32,7 +42,7 @@ echo $row['status'];
             <th>Email</th>
             <th>Gender</th>
            <th>status</th>
-            <th colspan="2" style="text-align:center;">Operations</th>
+            <th colspan="3" style="text-align:center;">Operations</th>
         </tr>
         <?php 
             while($row = pg_fetch_assoc($result)){
@@ -41,6 +51,7 @@ echo $row['status'];
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
                           <td>" .$row["status"]. "</td>
+                          <td>" .$activate. "</td>
                           <td><a href='updatedata.php?email=".$row["email"]."'>update/edit</td>
                           <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
                           </tr>" ;
