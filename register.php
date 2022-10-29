@@ -17,7 +17,7 @@ require "mysqldbconn.php";
    
    if($password === $cpassword){
     $sql = "INSERT INTO users (name,display_name,email,gender,password,cpassword)
-            VALUES ('$username','$display_name','$gmail','$gender','$passwordhash',' $cpasswordhash','Not Activated')";
+            VALUES ('$username','$display_name','$gmail','$gender','$passwordhash',' $cpasswordhash','notactivated')";
             $run = pg_query($conn,$sql);
             if($run == true){
                 header('location:login.php');
