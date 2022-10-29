@@ -5,10 +5,10 @@ error_reporting(E_ALL);
 require "mysqldbconn.php";
 
 
-$sql1 = "ALTER TABLE users
+$sql = "ALTER TABLE users
 DROP COLUMN status;";
 
-$sql = "ALTER TABLE users
+$sql1 = "ALTER TABLE users
 ADD status varchar(200);";
 
 $result = pg_query($conn,$sql1);
