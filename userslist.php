@@ -8,18 +8,6 @@ $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
 
-while($row = pg_fetch_assoc($result)){
-$row['status'];
-}
-if( $row['status'] == 'notactivated'){
-    $activate = '<button class="btn btn-success" name="activate">Activate</button>';
-}elseif($row['status'] == 'activated'){
-    $activate = '<button class="btn btn-danger" name="activate">De Activate</button>';
-}else{
-    $activate = '<button class="btn btn-danger" name="activate">Re activate</button>';
-}
-
-
 
 
 
