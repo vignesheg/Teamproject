@@ -9,7 +9,8 @@ $result = pg_query($conn,$sql);
 
 
 while($row = pg_fetch_assoc($result)){
-$row = pg_fetch_assoc($result);}
+$row['status'];
+}
 if( $row['status'] == 'notactivated'){
     $activate = '<button class="btn btn-success" name="activate">Activate</button>';
 }elseif($row['status'] == 'activated'){
@@ -53,10 +54,10 @@ if( $row['status'] == 'notactivated'){
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
-                          <td>" .$row["status"]. "</td>
-                          <td>" .$activate. "</td>
+                          <td>" .$row["status"]. "</td>                          
                           <td><a href='updatedata.php?email=".$row["email"]."'>update/edit</td>
                           <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
+                          <td>,$activate.</td>
                           </tr>" ;
               }
         ?>      
