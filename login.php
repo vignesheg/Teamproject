@@ -22,9 +22,9 @@ if(isset($_POST['login'])){
     
     if(empty($usename) && empty($password)){}else{
     $sql = "SELECT * FROM users WHERE gmail = '$username'";
-    $run = mysqli_query($conn,$sql);
-    $no = mysqli_num_rows($run);
-    $assoc = mysqli_fetch_assoc($run);
+    $run = pg_query($conn,$sql);
+    $no = pg_num_rows($run);
+    $assoc = pg_fetch_assoc($run);
 
 
 
