@@ -45,7 +45,6 @@ $result = pg_query($conn,$sql);
                           <td>" .$row["status"]. "</td>                          
                           <td><a href='updatedata.php?email=".$row["email"]."'>update/edit</td>
                           <td><a href='deletedata.php?email=".$row["email"]."'>delete</td>
-                          <td>,$activate.</td>
                           </tr>" ;
               }
         ?>      
