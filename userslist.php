@@ -7,6 +7,13 @@ require "mysqldbconn.php";
 $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
+$row1 = pg_fetch_assoc($result);
+ $finder = $row1['status'][3];
+ echo $finder;
+ if($finder = "notactivated"){
+    echo 'ok notactivated';
+ }
+
 
 ?>
 
@@ -46,11 +53,6 @@ $result = pg_query($conn,$sql);
               }
         ?>      
     </table>
-    <?php 
-
-while($row = pg_fetch_assoc($result)){
-    echo $row['status'];}
-    ?>
 </body>
 
 </html>
