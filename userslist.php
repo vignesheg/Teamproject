@@ -40,7 +40,6 @@ $row1 = pg_fetch_assoc($result);
             <th>Email</th>
             <th>Gender</th>
            <th>status</th>
-           <th>Actions</th>
             <th colspan="3" style="text-align:center;">Operations</th>
         </tr>
         <?php 
