@@ -8,10 +8,12 @@ $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
 $row1 = pg_fetch_assoc($result);
- $finder = $row1['status'][2];
+ $finder = $row1['status'];
  echo $finder;
  if($finder = "notactivated"){
     echo 'ok notactivated';
+ }else{
+    echo 'no';
  }
 
 
