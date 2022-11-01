@@ -11,7 +11,7 @@ $row1 = pg_fetch_assoc($result);
  $finder = $row1['status'];
  echo $finder;
  if($finder = "notactivated"){
-    echo 'ok notactivated';
+    echo '<button class="btn btn-primary">ok</button>';
  }else{
     echo 'no';
  }
