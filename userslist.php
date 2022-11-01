@@ -16,11 +16,7 @@ $row1 = pg_fetch_assoc($result);
     echo 'no';
  }
 
- if($finder = "deactivate"){
-    $button ='<button class="btn btn-danger">Deactivate</button>';
- }else{
-    echo 'no';
- }
+
 ?>
 
 <html>

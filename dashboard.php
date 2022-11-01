@@ -171,7 +171,7 @@
 
     </div>
     <div class="iframe">
-    <iframe src="userslist.php" class="position-absolute h-100" style="left: 12.5%;top:10%;width: 87%;"   frameborder="0"></iframe>
+    <iframe src="userslist.php" scrolling="no" class="position-absolute h-100"  style="left: 12.5%;top:10%;width: 87%;"   frameborder="0"></iframe>
 </div>
 
 
