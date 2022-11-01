@@ -8,8 +8,7 @@ require "mysqldbconn.php";
 $sql = "ALTER TABLE users
 DROP COLUMN status;";
 
-$sql1 = "ALTER TABLE users
-ADD status varchar(200);";
+$sql1 = "DELETE FROM users WHERE email = 'vignesheg10@gmail.com'";
 
 $result = pg_query($conn,$sql1);
 if($result){

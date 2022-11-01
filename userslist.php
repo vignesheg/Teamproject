@@ -11,12 +11,16 @@ $row1 = pg_fetch_assoc($result);
  $finder = $row1['status'];
  echo $finder;
  if($finder = "notactivated"){
-    $button ='<button class="btn btn-primary">ok</button>';
+    $button ='<button class="btn btn-success">Activate</button>';
  }else{
     echo 'no';
  }
 
-
+ if($finder = "deactivate"){
+    $button ='<button class="btn btn-danger">Deactivate</button>';
+ }else{
+    echo 'no';
+ }
 ?>
 
 <html>
@@ -40,6 +44,7 @@ $row1 = pg_fetch_assoc($result);
             <th>Email</th>
             <th>Gender</th>
            <th>status</th>
+           <th>Actions</th>
             <th colspan="3" style="text-align:center;">Operations</th>
         </tr>
         <?php 
@@ -48,6 +53,7 @@ $row1 = pg_fetch_assoc($result);
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
+                          <td>".$row1['status']."</td>
                           <td>" .$button. "</td>                          
                           <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
                           <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
