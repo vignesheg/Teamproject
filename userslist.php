@@ -37,11 +37,11 @@ $result = pg_query($conn,$sql);
             while($row = pg_fetch_assoc($result)){
                 echo "<tr><td>" .$row["name"]. "</td>
                           <td>" .$row["display_name"]."</td>
-                          <td>" .$row["email"]. "</td>
-                          <td>" .$row["gender"]. "</td>      
-                          <td>" .$row["status"]. "</td>                 
-                          <td><a  href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
-                          <td><a  href='deletedata.php?email=".$row["email"]."'>Delete</td>
+                          <td>" .$row["email"]."</td>
+                          <td>" .$row["gender"]."</td>      
+                          <td>" .$row["status"]."</td>                 
+                          <td><a class='btn btn-primary'  href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
+                          <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
               }
         ?>      
