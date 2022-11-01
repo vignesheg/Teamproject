@@ -33,10 +33,14 @@
             margin-top: 90px !important;
         }
 
+        .iframe{
+            overflow: visible ;
+        }
+
 
         @media only screen and (max-width: 600px) {
             .vrmn {
-                margin-left: -700px;
+                display: none;
             }
         }
 
@@ -64,12 +68,12 @@
                 margin: 0;
                 padding: 0;
                 overflow: hidden;
-                
-               
+
+
             }
 
             li {
-                float: left;
+                float: right;
             }
 
             li a {
@@ -84,7 +88,7 @@
                 background-color: #ddd;
             }
 
-            
+
         }
     </style>
 </head>
@@ -94,7 +98,7 @@
     <div class="smmenu fixed-top shadow-sm bg-white">
         <ul>
             <li><a class="active" href="#home"><i class="fa-regular fa-message"></i></a></li>
-            <li><a href="#news" class="li"><i class="fa-regular fa-bell"></i></a></li>
+            <li><a href="#news" class="li"><i  class="fa-regular fa-bell"></i></a></li>
             <li><a href="#contact"><img src="dashboard-3015057-2503766.webp" alt="Avatar Logo"
                         style="width:20px;margin-top: -5px;" class="rounded-pill"></a></li>
 
@@ -151,50 +155,24 @@
     </div>
 
 
-    <div style="width:230px;" class="vrmn position-fixed h-100 shadow bg-dark">
+    <div id="vrmn" style="width:230px;" class="vrmn position-fixed h-100 shadow bg-dark">
         <div class="container-fluid">
             <ul class="navbar-nav align-baseline" style="margin-top:6rem ;">
                 <li class="nav-item pb-2">
-                    <button class="btn btn-dark hovlink" name="dashboard"><i class="fa-solid fa-gauge-simple"
-                            style="font-size:18px;padding-right:5px;"></i>Dashboard</button>
-                </li>
+                    <a href="#" class="hovlink nav-link text-light"><i class="fa-solid fa-gauge-simple"
+                            style="font-size:18px;padding-right:5px;"></i>Dashboard</a> </li>
                 <li class="nav-item pb-2">
-                    <form action="" method="POST">
-                        <button class="btn btn-dark hovlink" name="userlist"><i class="fa-solid fa-list-ul"
-                                style="font-size:18px;padding-right:5px;"></i>Users List</button>
-                    </form>
-                </li>
-                <li class="nav-item pb-2">
-                    <form action="" method="POST">
-                        <button class="btn btn-dark hovlink" name="userlist"><i class="fa-regular fa-user"
-                                style="font-size:18px;padding-right:5px;"></i>Profile</button>
-                    </form>
-                </li>
-                <li class="nav-item pb-2">
-                    <form action="" method="POST">
-                        <button class="btn btn-dark hovlink " name="userlist"><i class="fa-regular fa-circle-question"
-                                style="font-size:18px;padding-right:5px;"></i>F. A. Q</button>
-                    </form>
-                </li>
-                <li class="nav-item pb-2">
-                    <form action="" method="POST">
-                        <button class="btn btn-dark hovlink" name="userlist"><i class="fa-regular fa-envelope"
-                                style="font-size:18px;padding-right:5px;"></i>Contact</button>
-                    </form>
-                </li>
-                <li class="nav-item pb-2">
-                    <form action="" method="POST">
-                        <button class="btn btn-dark hovlink" name="userlist"><i class="fa-regular fa-note-sticky"
-                                style="font-size:18px;padding-right:5px;"></i>Blank</button>
-                    </form>
+                    <a href="#" class="hovlink nav-link text-light"><i class="fa-solid fa-users"
+                            style="font-size:18px;padding-right:5px;"></i>users list</a>
                 </li>
             </ul>
 
         </div>
 
     </div>
-
-    
+    <div class="iframe">
+    <iframe src="userslist.php" class="position-absolute h-100" style="left: 12.5%;top:10%;width: 87%;"   frameborder="0"></iframe>
+</div>
 
 
 </body>
