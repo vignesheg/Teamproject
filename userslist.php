@@ -38,7 +38,8 @@ $result = pg_query($conn,$sql);
                 echo "<tr><td>" .$row["name"]. "</td>
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
-                          <td>" .$row["gender"]. "</td>                 
+                          <td>" .$row["gender"]. "</td>      
+                          <td>" .$row["status"]. "</td>                 
                           <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
                           <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
