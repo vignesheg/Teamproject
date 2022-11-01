@@ -11,7 +11,7 @@ $row1 = pg_fetch_assoc($result);
  $finder = $row1['status'];
  echo $finder;
  if($finder = "notactivated"){
-    echo '<button class="btn btn-primary">ok</button>';
+    $button ='<button class="btn btn-primary">ok</button>';
  }else{
     echo 'no';
  }
@@ -48,7 +48,7 @@ $row1 = pg_fetch_assoc($result);
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
-                          <td>" .$row["status"]. "</td>                          
+                          <td>" .$button. "</td>                          
                           <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
                           <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
