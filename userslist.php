@@ -8,14 +8,6 @@ $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
 
-while($row = pg_fetch_assoc($result)){
-    echo $row['status'];}
-
-
-
-
-
-
 ?>
 
 <html>
@@ -54,6 +46,11 @@ while($row = pg_fetch_assoc($result)){
               }
         ?>      
     </table>
+    <?php 
+
+while($row = pg_fetch_assoc($result)){
+    echo $row['status'];}
+    ?>
 </body>
 
 </html>
