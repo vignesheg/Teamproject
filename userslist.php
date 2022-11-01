@@ -8,6 +8,11 @@ $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
 
+while($row = pg_fetch_assoc($result)){
+    echo $row['status'];}
+
+
+
 
 
 
@@ -43,8 +48,8 @@ $result = pg_query($conn,$sql);
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>
                           <td>" .$row["status"]. "</td>                          
-                          <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>update/edit</td>
-                          <td><a class='btn btn-primary' href='deletedata.php?email=".$row["email"]."'>delete</td>
+                          <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
+                          <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
               }
         ?>      
