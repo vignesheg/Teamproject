@@ -40,8 +40,8 @@ $result = pg_query($conn,$sql);
                           <td>" .$row["email"]. "</td>
                           <td>" .$row["gender"]. "</td>      
                           <td>" .$row["status"]. "</td>                 
-                          <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
-                          <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
+                          <td><a  href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
+                          <td><a  href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
               }
         ?>      
