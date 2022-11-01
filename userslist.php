@@ -7,15 +7,6 @@ require "mysqldbconn.php";
 $sql = "SELECT * FROM users";
 $result = pg_query($conn,$sql);
 
-$row1 = pg_fetch_assoc($result);
- $finder = $row1['status'];
- echo $finder;
- if($finder = "notactivated"){
-    $button ='<button class="btn btn-success">Activate</button>';
- }else{
-    echo 'no';
- }
-
 
 ?>
 
@@ -47,8 +38,7 @@ $row1 = pg_fetch_assoc($result);
                 echo "<tr><td>" .$row["name"]. "</td>
                           <td>" .$row["display_name"]."</td>
                           <td>" .$row["email"]. "</td>
-                          <td>" .$row["gender"]. "</td>
-                          <td>" .$button. "</td>                          
+                          <td>" .$row["gender"]. "</td>                 
                           <td><a class='btn btn-primary' href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
                           <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
                           </tr>" ;
