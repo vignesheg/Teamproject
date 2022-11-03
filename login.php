@@ -218,7 +218,7 @@ if($num == 0){}else{
                 </div>
 
                 <h4 class="pb-3 pb-4 text-center">Have an account?</h4>
-                <form>
+                <form method="POST" action="" >
                     <div class="text-center">
                         <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
                             style="padding-top: 12px;padding-bottom:12px;" placeholder="username"><br><br>
