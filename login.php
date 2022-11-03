@@ -56,7 +56,8 @@ if($num == 0){}else{
      $email = "";
      $password = "";
  } 
-?>
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,7 +82,7 @@ if($num == 0){}else{
 
         body {
             background-image: url("bg.jpg");
-            height: 45.25rem;
+            height: 100%;
         }
 
         .name {
@@ -188,7 +189,7 @@ if($num == 0){}else{
                 <h4 class="pt-3 pb-4 text-center">Have an account?</h4>
                 <form>
                     <div class="text-center">
-                        <input type="text" name="gmail" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $email;} ?> " class="text-white name border border-secondary rounded-pill ps-3 pe-5"
+                        <input type="text" name="gmail" value="" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
                             style="padding-top: 12px;padding-bottom:12px;" placeholder="Email or username"><br><br>
                         <input type="password" value="" name="password" class="name border border-secondary rounded-pill ps-3 pe-5"
                             style="padding-top: 12px;padding-bottom:12px;" placeholder="Password"><br><br>
