@@ -20,7 +20,7 @@ require "mysqldbconn.php";
             VALUES ('$username','$display_name','$gmail','$gender','$passwordhash',' $cpasswordhash','notactivated')";
             $run = pg_query($conn,$sql);
             if($run == true){
-                header('location:index.php');
+                header('location:admin.php');
             }else{
                 echo 'failed';
             }
