@@ -1,6 +1,6 @@
 <?php 
 
-require 'mysqldbconn,php';
+require '../mysqldbconn,php';
 
 ?>
 <!DOCTYPE html>

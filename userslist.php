@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+
+
 $sql = 'SELECT * FROM users';
 $run = pg_query($conn,$sql);
 $row = pg_fetch_assoc($run);
