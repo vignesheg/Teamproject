@@ -1,51 +1,36 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require "mysqldbconn.php";
 
-$sql = "SELECT * FROM users";
-$result = pg_query($conn,$sql);
+
+$sql = 'SELECT * FROM users';
+$run = pg_query($conn,$sql);
+$row = pg_fetch_assoc($run);
 
 
 ?>
-
-<html>
-
-<head>
-
-<title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-</head>
-
-<body>
-    <table class="table table-striped">
+    <table class="table table-border">
         <tr>
             <th>Name</th>
             <th>Display Name</th>
             <th>Email</th>
             <th>Gender</th>
-           <th>status</th>
-            <th colspan="2" style="text-align:center;">Operations</th>
+           <th >status</th>
+            <th colspan="2" >Operations</th>
         </tr>
         <?php 
-            while($row = pg_fetch_assoc($result)){
-                echo "<tr><td>" .$row["name"]. "</td>
-                          <td>" .$row["display_name"]."</td>
-                          <td>" .$row["email"]."</td>
-                          <td>" .$row["gender"]."</td>      
-                          <td>" .$row["status"]."</td>                 
-                          <td><a class='btn btn-primary' style='margin-left:50px;'  href='updatedata.php?email=".$row["email"]."'>Update/Edit</td>
-                          <td><a class='btn btn-danger' href='deletedata.php?email=".$row["email"]."'>Delete</td>
+            while($row = pg_fetch_assoc($run)){
+                echo "<tr><td>".$row['name']."</td>
+                          <td> ".$row['name']."</td>
+                          <td>".$row['name']."</td>
+                          <td>".$row['name']."</td>      
+                          <td>".$row['name']."</td>" ?>
+                          <td><?php if($row['status'] == "0"){
+                            echo '<button>Inactive</button>';
+                          }"</td>                 
+                          <td><a style = 'margin-right:-2rem;'  class='btn btn-white'href='updatedata.php?email=".$row["email"]."'><i class='fa-regular fa-pen-to-square'></i></td>
+                          <td><a style = 'margin-left:-10rem;' class='btn btn-white' href='deletedata.php?email=".$row["email"]."'><i class='text-danger fa-regular fa-trash-can'></i></td>
                           </tr>" ;
-              }
-        ?>      
+            }
+        ?>  
+           
     </table>
-</body>
-
-</html>
+    <a href = '#'>update</a>

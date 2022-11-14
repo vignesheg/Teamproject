@@ -1,3 +1,8 @@
+<?php 
+
+require 'mysqldbconn,php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,13 +19,13 @@
         .hovlink:hover {
             padding-left: 20px;
             padding-right: 80px;
-            border-radius: 20px;
-            background-color: white !important;
-            color: black !important;
+            border-radius: 5px;
+            background-color: rgba(210, 210, 210, 0.121) !important;
+            color: white !important;
         }
 
         .hovlink {
-            border-radius: 20px;
+            border-radius: 5px;
             padding-left: 20px;
             padding-right: 80px;
         }
@@ -93,7 +98,7 @@
     </style>
 </head>
 
-<body>
+<body style = 'background-color:rgba(200, 200, 200, 0.317);'>
 
     <div class="smmenu fixed-top shadow-sm bg-white">
         <ul>
@@ -118,7 +123,7 @@
     <div>
         <nav class="links navbar navbar-expand-sm bg-white navbar-white shadow-sm fixed-top">
             <div class="container-fluid">
-                <img class="img img-fluid" src="unnamed.png" alt="New York" width="100" height="50">
+                <img class="img img-fluid" src="../images/unnamed.png" alt="New York" width="100" height="50">
                 <div class="" style="width: 22rem;">
                     <ul class="navbar-nav align-baseline" style="margin-right: 0px;">
                         <li class="nav-item ptr">
@@ -133,7 +138,7 @@
 
                         <li class="nav-item ptr">
                             <a class="navbar-brand" href="#">
-                                <img src="dashboard-3015057-2503766.webp" alt="Avatar Logo"
+                                <img src="../images/dashboard-3015057-2503766.webp" alt="Avatar Logo"
                                     style="width:40px;margin-top: 4px;" class="rounded-pill">
                             </a>
                         </li>
@@ -152,20 +157,40 @@
                 </div>
             </div>
         </nav>
+      
+    </div>
+
+    <div id="vrmn" style="width:230px;" class="vrmn position-fixed h-100 shadow bg-dark">
+        <div class="container-fluid">
+            <ul class="navbar-nav align-baseline" style="margin-top:6rem ;">
+                <li class="nav-item pb-2">
+                    <a href="#" class="hovlink nav-link text-light"><i class="fa-solid fa-gauge-simple"
+                            style="font-size:18px;padding-right:5px;"></i>Dashboard</a> </li>
+                <li class="nav-item pb-2">
+                    <a href="#" class="hovlink nav-link text-light"><i class="fa-solid fa-users"
+                            style="font-size:18px;padding-right:5px;"></i>users list</a>
+                </li>
+            </ul>
+
+        </div>
+
     </div>
 
  <?php //sidebar ?>
-   <?php
-   
-   require ('sidebar.php');
-   
-   
-   ?>
-    <div class="iframe">
-    <iframe src="userslist.php" scrolling="no" class="position-absolute h-100"  style="left: 12.5%;top:10%;width: 87%;"   frameborder="0"></iframe>
+ 
+
+ 
+
+  
+
+    <div class="position-absolute" style= 'margin-left:260px;top:10rem;width:85%;' > 
+
+<?php include('../userslist.php'); ?>
+
+<a href = '#'>update</a>
+
 </div>
-
-
+            
 </body>
 
 </html>

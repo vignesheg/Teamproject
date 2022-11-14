@@ -4,7 +4,7 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 session_start();
 
-require "mysqldbconn.php";
+require('../images/mysqldbconn.php');
 
 
 if(isset($_POST['login'])){
@@ -164,8 +164,8 @@ if($num == 0){}else{
     <div class="container">
         <div>
             <span style="color:#4b4b4b;font-family: Arial, Helvetica, sans-serif;font-size: 20px;">Sign in with</span>
-            <img class="img" src="facebook-svgrepo-com.svg">
-            <img class="img" src="1534129544.svg">
+            <img class="img" src="..images/facebook-svgrepo-com.svg">
+            <img class="img" src="../images/1534129544.svg">
         </div>
         <div style="text-align: center;margin-top:20px;">
             ----Or----
@@ -183,8 +183,6 @@ if($num == 0){}else{
                     <a href="#" style="text-decoration: none;margin-left: 210px;color:#3e3d3d;">Forgot Password?</a>
                     <div class="login"> 
                         <input class="loginbt" type="submit" name="login" value="Login">
-                    </div>
-                    <p class="small fw-bold mt-2 pt-1 mb-0">Not  a  Member? <a href="register.php" class="link-danger" style="text-decoration:none;">Register?</a></p>
                 </form>
             </div>
         </div>
