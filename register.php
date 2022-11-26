@@ -48,7 +48,7 @@ if(isset($_POST['register_button'])){
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
  
     //checking email already exist
-    $email_check = pg_query($conn,"SELECT * FROM usersreqular WHERE email = '$email'");
+    $email_check = pg_query($conn,"SELECT * FROM usersregular WHERE email = '$email'");
     $num_rows = pg_num_rows($email_check);
 
     if($num_rows > 0){
