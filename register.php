@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-require 'mysqldbconn.php';
+require 'pgdbconn.php';
 
 //Declaring variables to prevent error
 $name = '';
@@ -11,7 +11,7 @@ $password = '';
 $confirmpassword = '';
 $error_array = array();
 
-if(isset($_POST)){
+if(isset($_POST['register_button'])){
   //Registering form values
   $name = strip_tags($_POST['name']); //remove tags
   $_SESSION['name'] = $name;
@@ -88,17 +88,112 @@ if(isset($_POST)){
 ?>
 <html>
   <head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/41e5f9059a.js" crossorigin="anonymous"></script>
+    <style>
+        body::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            background: #000;
+            opacity: .3;
+            z-index: -1;
+        }
+
+        body {
+            background-image: url("bg.jpg");
+            height: 100%;
+        }
+
+        .name {
+            border: none !important;
+            background-color: rgba(245, 245, 245, 0.108);
+            color: rgb(255, 250, 250) !important;
+            transition: 0.3s;
+        }
+
+        .name::placeholder {
+            color: rgb(185, 185, 185);
+        }
+
+        .name:hover {
+            outline: 1px solid #a3a3a3 !important;
+            background-color: transparent;
+            color: rgb(255, 255, 255) !important;
+        }
+
+        .name:focus {
+            outline: 1px solid #a3a3a3 !important;
+            color: rgb(255, 255, 255);
+            background-color: transparent;
+        }
+
+        .img {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .formcont {
+            color: white;
+            box-shadow: 0px 0px 10px #343434;
+        }
+
+        .form-check-input:checked {
+            background-color: #fbceb5;
+            border-color: #fbceb5;
+        }
+
+        .subbtn {
+            background-color: #fbceb5 !important;
+            transition: 0.3s;
+            border: none;
+            text-decoration: none;
+        }
+
+        .subbtn:hover {
+            color: #000 !important;
+            background-color: #ffbb96 !important;
+            text-decoration: none;
+
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            background-color: #fbceb5 !important;
+        }
+
+        .nav-link {
+            color: black !important;
+        }
+
+        .subbtn-focus {
+            border: none;
+        }
+
+        .alert-danger {
+            --bs-alert-color: #842028ca;
+            --bs-alert-bg: #f8d7da7b;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-<h4 class="pb-3 pb-4 text-center">Have an account?</h4>
+<h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Have an account?</h4>
             <form method="POST" action="" >
                 <div class="text-center">
                     <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='name' value='
-                        <?php if(isset($_SESSION['name'])){
+                        style="padding-top: 12px;padding-bottom:12px;" name='name' value='<?php if(isset($_SESSION['name'])){
                           echo $_SESSION['name'];
-                        }?>
-                        ' placeholder="username"><br><br>
+                        }?>' placeholder="username"><br><br>
                         <?php if(in_array("your name must between 2 and 25 charecters",$error_array)){echo "your name must between 2 and 25 charecters<br>";} ?>
                         <?php if(in_array("username already exists",$error_array)){echo "username already exists<br>";} ?>
 
