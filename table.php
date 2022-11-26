@@ -6,6 +6,7 @@ $sql = "CREATE TABLE usersregular (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 email VARCHAR(50) NOT NULL,
+gender VARCHAR(3) NOT NULL,
 password VARCHAR(50) NOT NULL,
 signup_date DATE,
 profile_pic VARCHAR(255),
