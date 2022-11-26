@@ -77,7 +77,7 @@ if(isset($_POST['register_button'])){
 
   if(empty($error_arry)){
 
-    $passwordhashed = password_hash($password,DEFAULT_INCLUDE_PATH);
+    $passwordhashed = password_hash($password,PASSWORD_DEFAULT);
     $insertusers = "INSERT INTO usersregular 
     VALUES ('', '$name', '$email','$gender','$passwordhashed','$date','$profile_pic','0','0','no','0')";
     $run2 = pg_query($conn,$sql);
