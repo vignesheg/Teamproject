@@ -75,15 +75,15 @@ if(isset($_POST['register_button'])){
 
   $profile_pic = "assets/images/profile/default/head_alizarin.png";
 
-  if(empty($error_arry)){
+
 
     $passwordhashed = password_hash($password,PASSWORD_DEFAULT);
     $insertusers = "INSERT INTO usersregular (id, name, email,gender,password,signup_date,profile_pic,num_post,num_likes,user_closed,friend_arrat) 
-    VALUES ('', '$name', '$email','$gender','$passwordhashed','$date','$profile_pic','0','0','no','0')";
+    VALUES ('', '$name', '$email','$gender','$passwordhashed','$date','$profile_pic',0,0,'no','0')";
     $run2 = pg_query($conn,$insertusers);
     if($run2 == true){
       echo '<script>window.location.replace("login.php");</script>';
-    }
+    
   }
 
 }
