@@ -3,7 +3,7 @@
 require 'mysqldbconn.php';
 
 $sql = "CREATE TABLE usersregular (
-id INT(6) BIGSERIAL PRIMARY KEY,
+id INT(6) SERIAL PRIMARY KEY,
 name VARCHAR(30) NOT NULL,
 email VARCHAR(50) NOT NULL,
 gender VARCHAR(3) NOT NULL,
