@@ -80,7 +80,7 @@ if(isset($_POST['register_button'])){
     $passwordhashed = password_hash($password,PASSWORD_DEFAULT);
     $insertusers = "INSERT INTO usersregular 
     VALUES ('', '$name', '$email','$gender','$passwordhashed','$date','$profile_pic','0','0','no','0')";
-    $run2 = pg_query($conn,$sql);
+    $run2 = pg_query($conn,$insertusers);
     if($run2 == true){
       echo '<script>window.location.replace("login.php");</script>';
     }
