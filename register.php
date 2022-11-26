@@ -23,7 +23,7 @@ if(isset($_POST['register_button'])){
   $name_check = pg_query($conn,"SELECT * FROM usersregular WHERE name = '$name'");
   $num_name_rows = pg_num_rows($name_check);
 
-  if(pg_num_rows($num_name_rows) > 0){
+  if($num_name_rows > 0){
     array_push($error_array, "username already exists");
   }
 
