@@ -141,7 +141,7 @@ if(strlen($password) == 0){
 </head>
 <body>
 <h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Login</h4>
-            <form method="POST" action="registerhandler.php" >
+            <form method="POST" action="" class='container' >
                 <div class="text-center">
 
                 <!-- php for showing error -->
