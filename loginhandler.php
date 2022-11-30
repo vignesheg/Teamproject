@@ -61,6 +61,10 @@ if(strlen($password) == 0){
             z-index: -1;
         }
 
+        .cont{
+            max-width:600px;
+        }
+
         body {
             background-image: url("bg.jpg");
             height: 100%;
