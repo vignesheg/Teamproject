@@ -1,3 +1,44 @@
+<?php
+//declaring variables to prevent error
+$email = "";
+$password = "";
+$loginerror = array(); //error handling array
+
+if(isset($_POST['login'])){
+$email = $_POST['email'];
+$email = filter_var($email,FILTER_SANITIZE_EMAIL);
+$password = $_POST['password'];
+$password = password_hash($password,PASSWORD_DEFAULT);
+$_SESSION['email'] = $email;
+
+// sql query
+$loginquery = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+$loginrun = pg_query($conn,$loginquery);
+$loginnum = pg_num_rows($loginrun);
+
+//selected greater than 0 go to index
+if($loginnum > 0){
+
+    echo '<script>window.location.replace("index.php");</script>';
+
+}elseif($loginnum == 0){
+
+    array_push($loginerror, "Emaail Or Password is wrong");
+
+}
+
+if(strlen($email) == 0){
+     array_push($loginerror,"please enter email");
+}
+
+if(strlen($password) == 0){
+    array_push($loginerror,"Please enter password");
+}
+
+}
+
+?>
+
 <html>
   <head>
   <meta charset="UTF-8">
@@ -99,54 +140,34 @@
     </style>
 </head>
 <body>
-<h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Register Here</h4>
+<h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Login</h4>
             <form method="POST" action="registerhandler.php" >
                 <div class="text-center">
-                    <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='name' value='<?php if(isset($_SESSION['name'])){
-                          echo $_SESSION['name'];
-                        }?>' placeholder="username"><br><br>
-                        <?php if(in_array("your name must between 2 and 25 charecters",$error_array)){echo "your name must between 2 and 25 charecters<br>";} ?>
-                        <?php if(in_array("username already exists",$error_array)){echo "username already exists<br>";} ?>
 
+                <!-- php for showing error -->
+                <div class="alert alert-danger">
+                <?php if(in_array("Emaail Or Password is wrong",$loginerror)){
+                    echo "Emaail Or Password is wrong";
+                } ?>
+                 <?php if(in_array("please enter email",$loginerror)){
+                    echo "please enter email";
+                } ?>
+                 <?php if(in_array("Please enter password",$loginerror)){
+                    echo "Please enter password";
+                } ?>
+                
+                </div>
 
                     <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
                         style="padding-top: 12px;padding-bottom:12px;" name='email' value = '<?php if(isset($_SESSION['email'])){
-                          echo $_SESSION['email'];
+                            echo $_SESSION['email'];
                         }?>' placeholder="Email"><br><br>
-                        <?php if(in_array("Email already in use",$error_array)){echo "Email already in use<br>";}
-                        elseif(in_array('Invalid Email',$error_array)){
-                          echo 'Invalid Email';
-                        }
-                        ?>
-
-                    <div class="form-check mb-3 ms-2">
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input ms-2 me-2" value='0' type="radio" name="gender" checked>Female
-                        </label>
-
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input me-2" type="radio" value='1' name="gender">Male
-                        </label>
-
-
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input me-2" type="radio" value='2' name="gender">others
-                        </label>
 
                     </div>
                     <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
                         style="padding-top: 12px;padding-bottom:12px;" name='password'  placeholder="Password"><br><br>
-                        <?php if(in_array("confirm password is not equal password",$error_array)){
-                          echo "confirm password is not equal password<br>";
-                        }elseif(in_array("your password must be between 5 and 30 characters",$error_array)){
-                          echo "your password must be between 5 and 30 characters<br>";
-                        }?>
-
-                    <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='cpassword' placeholder="Conform Password"><br><br>
                     <button class="subbtn  rounded-pill ps-5 pe-5 mb-3"
-                        style="padding-top: 12px;padding-bottom:12px;width: 20rem;" name = 'register_button'  type="submit">Register
+                        style="padding-top: 12px;padding-bottom:12px;width: 20rem;" name = 'login'  type="submit">Login
                     </button><br>
                 </div>
             </form>
