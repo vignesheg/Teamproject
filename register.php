@@ -97,61 +97,72 @@
             border: none;
         }
     </style>
-</head>
 <body>
-<h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Register Here</h4>
-            <form method="POST" action="registerhandler.php" >
-                <div class="text-center">
+
+<body class="img" scrolling="no">
+
+
+
+
+<div style="max-width:30rem;margin-top: 8rem;"
+    class="container formcont rounded-5 pb-2 container " id="menu1">
+    <div>
+        <div>
+        <h4 class="pb-3 pb-4 text-center " style='margin-top:10rem;'>Login</h4>
+            <form method="POST" action="" class='container' >
+
                     <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='name' value='<?php if(isset($_SESSION['name'])){
-                          echo $_SESSION['name'];
-                        }?>' placeholder="username"><br><br>
-                        <?php if(in_array("your name must between 2 and 25 charecters",$error_array)){echo "your name must between 2 and 25 charecters<br>";} ?>
-                        <?php if(in_array("username already exists",$error_array)){echo "username already exists<br>";} ?>
-
-
-                    <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='email' value = '<?php if(isset($_SESSION['email'])){
-                          echo $_SESSION['email'];
-                        }?>' placeholder="Email"><br><br>
-                        <?php if(in_array("Email already in use",$error_array)){echo "Email already in use<br>";}
-                        elseif(in_array('Invalid Email',$error_array)){
-                          echo 'Invalid Email';
-                        }
-                        ?>
-
-                    <div class="form-check mb-3 ms-2">
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input ms-2 me-2" value='0' type="radio" name="gender" checked>Female
-                        </label>
-
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input me-2" type="radio" value='1' name="gender">Male
-                        </label>
-
-
-                        <label class="form-check-label me-5" style="font-size:18px;">
-                            <input class="form-check-input me-2" type="radio" value='2' name="gender">others
-                        </label>
+                        style="padding-top: 12px;padding-bottom:12px;" name='email' value = '' placeholder="Email"><br><br>
 
                     </div>
                     <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
                         style="padding-top: 12px;padding-bottom:12px;" name='password'  placeholder="Password"><br><br>
-                        <?php if(in_array("confirm password is not equal password",$error_array)){
-                          echo "confirm password is not equal password<br>";
-                        }elseif(in_array("your password must be between 5 and 30 characters",$error_array)){
-                          echo "your password must be between 5 and 30 characters<br>";
-                        }?>
-
-                    <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
-                        style="padding-top: 12px;padding-bottom:12px;" name='cpassword' placeholder="Conform Password"><br><br>
+                        <a href="#" class="register" id="register">Don't have an account?Register Here</a>
                     <button class="subbtn  rounded-pill ps-5 pe-5 mb-3"
-                        style="padding-top: 12px;padding-bottom:12px;width: 20rem;" name = 'register_button'  type="submit">Register
+                        style="padding-top: 12px;padding-bottom:12px;width: 20rem;" name = 'login'  type="submit">Login
                     </button><br>
                 </div>
             </form>
-        </div>
+    </div>
+    </div>
+    <div class="">
+        <h2 class="pt-4 mb-5 text-center">Register Here</h2>
+       
+        <form method="POST" action="" >
+            <div class="text-center">
+                <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
+                    style="padding-top: 12px;padding-bottom:12px;" name='name' value='' placeholder="username"><br><br>
+                <input type="text" class="text-white name border border-secondary rounded-pill ps-3 pe-5"
+                    style="padding-top: 12px;padding-bottom:12px;" name='email' value = '' placeholder="Email"><br><br>
+                <div class="form-check mb-3 ms-2">
+                    <label class="form-check-label me-5" style="font-size:18px;">
+                        <input class="form-check-input ms-2 me-2" value='female' type="radio" name="remember" checked>Female
+                    </label>
+
+                    <label class="form-check-label me-5" style="font-size:18px;">
+                        <input class="form-check-input me-2" type="radio" value='male' name="remember">Male
+                    </label>
+
+
+                    <label class="form-check-label me-5" style="font-size:18px;">
+                        <input class="form-check-input me-2" type="radio" value='others' name="remember">others
+                    </label>
+
+                </div>
+                <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
+                    style="padding-top: 12px;padding-bottom:12px;" name='password'  placeholder="Password"><br><br>
+
+                <input type="password" class="name border border-secondary rounded-pill ps-3 pe-5"
+                    style="padding-top: 12px;padding-bottom:12px;" name='cpassword' placeholder="Conform Password"><br><br>
+                    <a href="#" class="login" id="login">Have an account?Login Here</a>
+                <button class="subbtn  rounded-pill ps-5 pe-5 mb-3"
+                    style="padding-top: 12px;padding-bottom:12px;width: 20rem;"  type="submit">Register
+                </button><br>
+            </div>
+        </form>
     </div>
 </div>
+</div>
+
 </body>
 </html>
